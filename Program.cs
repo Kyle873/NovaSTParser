@@ -6,6 +6,7 @@ using System.Threading;
 
 using Newtonsoft.Json;
 using System.Linq;
+using System.Net;
 
 namespace NovaSTParser
 {
@@ -16,6 +17,7 @@ namespace NovaSTParser
         const string GranCSVFile = "Data\\item_gran.csv";
         const string MaterialsJSONFile = "Data\\Materials.json";
         const string DescriptionsJSONFile = "Data\\Search Team Quest Descriptions.json";
+        const string MaterialsJSONDownload = "https://raw.githubusercontent.com/Arks-Layer/PSNovaTranslations/master/rmd/Materials.json";
 
         const char MultiplierChar = '×';
 
@@ -149,6 +151,9 @@ namespace NovaSTParser
         static void ParseNameData()
         {
             Console.WriteLine("Parsing materials JSON...");
+
+            using (WebClient client = new WebClient())
+                client.DownloadFile(MaterialsJSONDownload, MaterialsJSONFile);
 
             watch.Start();
 
