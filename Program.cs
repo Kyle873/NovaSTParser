@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Threading;
 
 using Newtonsoft.Json;
 using System.Linq;
-using System.Net;
 
 namespace NovaSTParser
 {
